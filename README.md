@@ -1,4 +1,18 @@
-# 基于摄像头的面部表情识别
+# 微表情识别摄像头工具（Emotion Recognition Camera）
+
+![Python](https://img.shields.io/badge/Python-3.8%20%7C%203.9%20%7C%203.10-blue)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.8.0-green)
+![DeepFace](https://img.shields.io/badge/DeepFace-0.0.79-orange)
+
+实时面部情绪识别工具，基于 OpenCV 摄像头捕捉和 DeepFace 情绪分析，支持实时统计、结果可视化和报告生成。
+
+
+## 📌 功能特点
+- 🔍 **实时识别**：支持 7 种情绪（开心、悲伤、愤怒、惊讶、恐惧、厌恶、中性）。
+- 📊 **数据统计**：自动记录情绪出现频率，生成占比报告。
+- 🎨 **可视化**：摄像头画面实时标注面部框和情绪标签，退出后生成情绪分布饼图。
+- 🔄 **灵活操作**：按 `r` 键重置统计，按 `q` 键退出并保存报告。
+- 💻 **多系统兼容**：支持 Windows、macOS、Linux，自动适配摄像头后端。
 
 该项目利用计算机视觉和深度学习技术，从摄像头实时获取的画面中识别面部表情。它能够分析情绪、统计相关数据，并生成带有情绪分布可视化图表的报告。
 
@@ -42,6 +56,10 @@
 - `9.1.test3.py`：包含面部表情识别和分析代码的主 Python 脚本。
 - `facial_expression_model_weights.h5`：DeepFace 用于情绪检测的预训练模型权重文件。
 - `README.md`：本文件，为项目提供文档说明。
+## 注意！！
+
+其他人运行 9.1.test3.py 时，需要 facial_expression_model_weights.h5 模型文件。
+在代码中使用了 DeepFace 库进行表情分析，而 facial_expression_model_weights.h5 是预训练的模型权重文件，DeepFace 在进行表情识别等操作时，需要加载该模型权重来实现相应功能。在代码执行时会自动下载该文件，但如果下载过慢或无法下载，则可以将本项目中的.h5文件自助下好然后放到代码中指定的目录下，如果没有这个 .h5 文件，DeepFace 可能无法正常进行表情分析，程序会出现错误（比如模型加载失败等问题），导致无法正常运行。所以要确保在运行 9.1.test3.py 时，facial_expression_model_weights.h5 与 .py 文件在同一目录下（或者代码中指定了正确的模型路径）。
 
 ## 工作原理
 1. **摄像头初始化**：脚本尝试不同的摄像头后端来初始化摄像头以进行视频捕获。
